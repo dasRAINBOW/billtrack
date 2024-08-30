@@ -4,8 +4,9 @@
         <title>billtrack</title>
         <link rel="stylesheet" href="style.css">
     </head>
-    <body>
-        <!-- <button id="fullScreenPrompt" class="fullScreenPrompt" onClick="openFullscreen()">Please use fullscreen mode</button> -->
+    <body onload="checkTheme()">
+        <button id="fullScreenPrompt" class="fullScreenPrompt">Please use fullscreen mode</button>
+        <button id="theme-toggle" class="theme-toggle">☀</button>
         <div id="pl1" class="pl1">
             <p id="pl1_name" class="pl_name">Lorem</p>
             <p id="pl1_ball" class="pl_ball">Half / Full</p>
