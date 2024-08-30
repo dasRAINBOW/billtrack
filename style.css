@@ -5,6 +5,7 @@
     --background: rgb(241, 247, 248);
     --primary: rgb(34, 99, 109);
     --secondary: rgb(125, 218, 232);
+    --secondaryLight: rgb(38, 193, 217);
     --accent: rgb(16, 205, 234);
     --empty: rgba(16, 205, 234, 0.3);
 }
@@ -14,6 +15,7 @@
     --background: rgb(7, 13, 14);
     --primary: rgb(146, 211, 221);
     --secondary: rgb(23, 116, 130);
+    --secondaryLight: rgb(212, 243, 247);
     --accent: rgb(21, 210, 239);
     --empty: rgba(21, 210, 239, 0.3);
 }
@@ -35,6 +37,10 @@ body {
     color: var(--text);
     font-family: 'Poppins';
     font-weight: 400;
+}
+
+.beGone {
+    display: none !important;
 }
 
 button {
@@ -60,6 +66,20 @@ button:active {
     text-align: center;
 }
 
+.gameOver {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    font-size: 4rem;
+    z-index: 5;
+    text-align: center;
+    background-color: var(--background);
+}
+
 .theme-toggle {
     position: absolute;
     top: 10px;
@@ -80,6 +100,23 @@ button:active {
     width: 50vw;
     height: 100vh;
     text-align: center;
+}
+
+.divider {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 3px;
+    height: 100vh;
+    background-color: var(--secondaryLight);
+    z-index: 2;
+    box-shadow:
+        0 0 10px var(--secondary),
+        0 0 20px var(--secondary),
+        0 0 30px var(--secondary),
+        0 0 40px var(--secondary),
+        0 0 50px var(--secondary);
 }
 
 .pl2 {
