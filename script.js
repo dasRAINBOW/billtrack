@@ -91,38 +91,48 @@ pl2_countDown.addEventListener('click', () => {
 })
 
 pl1_foul.addEventListener('click', () => {
-    if (confirm('Are you sure?')) {
-        pl1_fouls += 1;
-        if (pl1_fouls == 1) {
-            pl1_foul1.style.backgroundColor = "#f00";
-        } else if (pl1_fouls == 2) {
-            pl1_foul1.style.backgroundColor = "#f00";
-            pl1_foul2.style.backgroundColor = "#f00";
-        } else if (pl1_fouls == 3) {
-            pl1_foul1.style.backgroundColor = "#f00";
-            pl1_foul2.style.backgroundColor = "#f00";
-            pl1_foul3.style.backgroundColor = "#f00";
-            gameOver.classList.remove('beGone');
-            gameOver.innerHTML = pl2_name.innerHTML + " wins, since " + pl1_name.innerHTML + " fouled too much.";
+    pl1_fouls += 1;
+    if (pl1_fouls == 1) {
+        pl1_foul1.style.backgroundColor = "#f00";
+    } else if (pl1_fouls == 2) {
+        pl1_foul1.style.backgroundColor = "#f00";
+        pl1_foul2.style.backgroundColor = "#f00";
+    } else if (pl1_fouls == 3) {
+        pl1_foul1.style.backgroundColor = "var(--empty)";
+        pl1_foul2.style.backgroundColor = "var(--empty)";
+        pl1_foul3.style.backgroundColor = "var(--empty)";
+        let score = parseInt(pl2_score.innerHTML);
+        pl2_score.innerHTML = score + 1;
+        var elements = document.getElementsByClassName('pl_decideHalf');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('beGone');
         }
+        pl1_ball.innerHTML = 'Half / Full';
+        pl2_ball.innerHTML = 'Half / Full';
+        alert("Three fouls! Enemy scored a game!")
     }
 })
 
 pl2_foul.addEventListener('click', () => {
-    if (confirm('Are you sure?')) {
-        pl2_fouls += 1;
-        if (pl2_fouls == 1) {
-            pl2_foul1.style.backgroundColor = "#f00";
-        } else if (pl2_fouls == 2) {
-            pl2_foul1.style.backgroundColor = "#f00";
-            pl2_foul2.style.backgroundColor = "#f00";
-        } else if (pl2_fouls == 3) {
-            pl2_foul1.style.backgroundColor = "#f00";
-            pl2_foul2.style.backgroundColor = "#f00";
-            pl2_foul3.style.backgroundColor = "#f00";
-            gameOver.classList.remove('beGone');
-            gameOver.innerHTML = pl1_name.innerHTML + " wins, since " + pl2_name.innerHTML + " fouled too much.";
+    pl2_fouls += 1;
+    if (pl2_fouls == 1) {
+        pl2_foul1.style.backgroundColor = "#f00";
+    } else if (pl2_fouls == 2) {
+        pl2_foul1.style.backgroundColor = "#f00";
+        pl2_foul2.style.backgroundColor = "#f00";
+    } else if (pl2_fouls == 3) {
+        pl2_foul1.style.backgroundColor = "var(--empty)";
+        pl2_foul2.style.backgroundColor = "var(--empty)";
+        pl2_foul3.style.backgroundColor = "var(--empty)";
+        let score = parseInt(pl1_score.innerHTML);
+        pl1_score.innerHTML = score + 1;
+        var elements = document.getElementsByClassName('pl_decideHalf');
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('beGone');
         }
+        pl1_ball.innerHTML = 'Half / Full';
+        pl2_ball.innerHTML = 'Half / Full';
+        alert("Three fouls! Enemy scored a game!")
     }
 })
 
@@ -131,9 +141,11 @@ function checkTheme() {
 }
 
 fullScreenPrompt.addEventListener('click', () => {
-    const requestFullscreen = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
-    if (requestFullscreen) requestFullscreen.call(root);
-    fullScreenPrompt.style.display = 'none';
-},
-{ once: true }
-);
+    if((window.fullScreen) ||
+    (window.innerWidth == screen.width && window.innerHeight == screen.height)) {
+        document.exitFullscreen();
+    } else {
+        let requestFullscreen = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
+        requestFullscreen.call(root);
+    }
+});
