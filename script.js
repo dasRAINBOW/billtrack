@@ -71,10 +71,10 @@ function updateScore(scoreElement, increment) {
 }
 
 // Add event listeners to score buttons to increase or decrease scores
-document.getElementById('pl1_countUp').addEventListener('click', () => updateScore(pl1_score, 1));
-document.getElementById('pl1_countDown').addEventListener('click', () => updateScore(pl1_score, -1));
-document.getElementById('pl2_countUp').addEventListener('click', () => updateScore(pl2_score, 1));
-document.getElementById('pl2_countDown').addEventListener('click', () => updateScore(pl2_score, -1));
+document.getElementById('pl1_countUp').addEventListener('click', () => {updateScore(pl1_score, 1); resetGame();});
+document.getElementById('pl1_countDown').addEventListener('click', () => {updateScore(pl1_score, -1); resetGame();});
+document.getElementById('pl2_countUp').addEventListener('click', () => {updateScore(pl2_score, 1); resetGame();});
+document.getElementById('pl2_countDown').addEventListener('click', () => {updateScore(pl2_score, -1); resetGame();});
 
 // Function to handle fouls for each player and update the opponent's score if necessary
 function handleFoul(playerFouls, enemyPlayerFouls, foulElements, enemyFoulElements, opponentScoreElement) {
@@ -83,21 +83,28 @@ function handleFoul(playerFouls, enemyPlayerFouls, foulElements, enemyFoulElemen
 
     // If three fouls, reset and award a point to the opponent
     if (playerFouls === 3) {
-        foulElements.forEach(el => el.style.backgroundColor = "var(--empty)"); // Reset fouls indicators
-        enemyFoulElements.forEach(el => el.style.backgroundColor = "var(--empty)"); // Reset enemy fouls indicators
+        let r = resetGame(); // Reset the game
+        playerFouls = r[0]; // Set playerFouls to be used later
+        enemyPlayerFouls = r[1]; // Set enemyPlayerFouls to be used later
         updateScore(opponentScoreElement, 1); // Increment opponent's score by 1
-        
-        // Show decision elements again after fouls reset
-        Array.from(elements).forEach(el => el.classList.remove('beGone'));
-        pl1_ball.innerHTML = 'Half / Full'; // Reset decision displays
-        pl2_ball.innerHTML = 'Half / Full'; // Reset decision displays
-        
         alert("Three fouls! Enemy scored a game!"); // Alert user
-        playerFouls = 0; // Reset foul count
-        enemyPlayerFouls = 0; // Reset enemy foul count
     }
 
     return [playerFouls, enemyPlayerFouls]; // Return updated foul counts
+}
+
+function resetGame() {
+    let foulElements = [pl1_foul1, pl1_foul2, pl1_foul3]; // set foulElements to be used later
+    let enemyFoulElements = [pl2_foul1, pl2_foul2, pl2_foul3]; // set enemyFoulElements to be used later
+    foulElements.forEach(el => el.style.backgroundColor = "var(--empty)"); // Reset fouls indicators
+    enemyFoulElements.forEach(el => el.style.backgroundColor = "var(--empty)"); // Reset enemy fouls indicators
+    // Show decision elements again after fouls reset
+    Array.from(elements).forEach(el => el.classList.remove('beGone')); // Show decision elements
+    pl1_ball.innerHTML = 'Half / Full'; // Reset decision displays
+    pl2_ball.innerHTML = 'Half / Full'; // Reset decision displays
+    pl1_fouls = 0; // Reset foul count
+    pl2_fouls = 0; // Reset enemy foul count
+    return [pl1_fouls, pl2_fouls]; // Return updated foul counts
 }
 
 // Add event listeners for foul buttons to handle fouls and update scores
@@ -113,7 +120,7 @@ pl2_foul.addEventListener('click', () => {
 });
 
 // Add event listener for the full screen toggle button
-fullScreenPrompt.addEventListener('click', () => {
+fullScreen.addEventListener('click', () => {
     if (document.fullscreenElement) { // Check if full screen is currently active
         document.exitFullscreen(); // Exit full screen mode
     } else {
@@ -121,4 +128,8 @@ fullScreenPrompt.addEventListener('click', () => {
         const requestFullscreen = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
         requestFullscreen.call(root);
     }
+});
+
+document.getElementById('history').addEventListener('click', () => {
+    window.location.href = 'history';
 });

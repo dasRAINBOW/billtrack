@@ -55,7 +55,7 @@ button:active {
     transform: translateY(3px);
 }
 
-.fullScreen, .theme-toggle, .history {
+.fullScreenPrompt, .theme-toggle {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -71,89 +71,42 @@ button:active {
 }
 
 .history {
-    top: 50% !important;
-    transform: translateY(-50%) translateX(-50%) !important;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+    font-size: 30px;
 }
 
-.history:active {
-    transform: translateY(-50%) translateX(-50%) translateY(3px) !important;
-}
-
-.fullScreen:active, .theme-toggle:active {
+.fullScreenPrompt:active, .theme-toggle:active {
     transform: translateX(-50%) translateY(3px) !important;
 }
 
-.pl1, .pl2 {
-    width: 50vw;
-    height: 100vh;
-    text-align: center;
-}
-
-.pl1 {
-    float: left;
-}
-
-.divider {
+.selectGames {
     position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-content: space-around;
+    align-content: space-around;
+    width: 100vw;
+    height: calc(100vh - 120px);
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 3px;
-    height: 100vh;
-    background-color: var(--secondaryLight);
-    z-index: 2;
-    box-shadow: 0 0 10px var(--secondary), 0 0 20px var(--secondary), 0 0 30px var(--secondary), 0 0 40px var(--secondary), 0 0 50px var(--secondary);
+    transform: translateY(-50%);
 }
 
-.pl_name {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 5vh;
-}
-
-.pl_ball {
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0.8rem;
-}
-
-.pl_decideHalf, .pl_countUp, .pl_countDown, .pl_foul {
-    font-size: 1.8rem;
-    margin: 1vh 5px;
-    padding: 5px;
-    width: 10vw;
-    height: 10vh;
-}
-
-.pl_decideHalf {
-    width: 20vw;
-}
-
-.pl1_score, .pl2_score {
-    font-size: 7rem;
-    text-align: center;
-    margin: 0;
-}
-
-.pl1_fouls, .pl2_fouls {
+.game {
+    background-color: var(--accent);
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    flex-direction: row;
     align-items: center;
-    margin: 1vh 5px;
-    padding: 5px;
-    border-radius: 10px;
-    width: 20vw;
-    height: 10vh;
-    margin: 0 auto;
-}
-
-.pl1_foul1, .pl1_foul2, .pl1_foul3,
-.pl2_foul1, .pl2_foul2, .pl2_foul3 {
-    background-color: var(--empty);
-    width: 5vw;
-    height: 5vh;
-    border: 3px solid var(--accent);
-    border-radius: 10px;
-    margin: 0 0.3vw;
+    align-content: center;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 15vw;
+    height: 20vh;
+    margin: auto;
 }
