@@ -125,7 +125,7 @@ fullScreen.addEventListener('click', () => {
         document.exitFullscreen(); // Exit full screen mode
     } else {
         // Enter full screen mode using the appropriate method for the browser
-        const requestFullscreen = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen;
+        const requestFullscreen = root.requestFullscreen || root.webkitRequestFullscreen || root.msRequestFullscreen || root.webkitEnterFullScreen;
         requestFullscreen.call(root);
     }
 });
