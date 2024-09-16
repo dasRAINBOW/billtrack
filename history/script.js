@@ -8,7 +8,7 @@ themeToggle.addEventListener('click', function () {
     // Check the current theme; if light, change to dark and vice versa
     const isLightTheme = root.getAttribute('data-theme') === 'light';
     root.setAttribute('data-theme', isLightTheme ? 'dark' : 'light');
-    
+
     // Update the button text to reflect the current theme
     this.textContent = isLightTheme ? '☀' : '☽';
 });

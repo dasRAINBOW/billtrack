@@ -55,7 +55,8 @@ button:active {
     transform: translateY(3px);
 }
 
-.fullScreenPrompt, .theme-toggle {
+.fullScreenPrompt,
+.theme-toggle {
     position: absolute;
     bottom: 10px;
     left: 50%;
@@ -80,7 +81,8 @@ button:active {
     font-size: 30px;
 }
 
-.fullScreenPrompt:active, .theme-toggle:active {
+.fullScreenPrompt:active,
+.theme-toggle:active {
     transform: translateX(-50%) translateY(3px) !important;
 }
 
