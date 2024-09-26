@@ -16,6 +16,7 @@ const pl2_foul2 = document.getElementById('pl2_foul2'); // Player 2 second foul 
 const pl2_foul3 = document.getElementById('pl2_foul3'); // Player 2 third foul indicator
 const pl1_foul = document.getElementById('pl1_foul'); // Player 1 foul button
 const pl2_foul = document.getElementById('pl2_foul'); // Player 2 foul button
+const fullScreen = document.getElementById('fullScreen'); // Full screen toggle button
 const elements = document.getElementsByClassName('pl_decideHalf'); // Elements that decide half/full play
 
 // Initialize foul counters for each player
