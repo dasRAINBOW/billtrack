@@ -12,4 +12,4 @@ Simply click on them and enter new ones.
 
 ### What is that 'F' button?
 
-Very simple answer: fullscreen toggle
+Very simple answer: fullscreen toggle.
