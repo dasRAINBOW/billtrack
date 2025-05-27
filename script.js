@@ -71,7 +71,7 @@ function updateScore(scoreElement, increment) {
     scoreElement.innerHTML = score + increment; // Update score by increment
     if (scoreElement.innerHTML < 0) {
         scoreElement.innerHTML = "0"; // Ensure score does not go below zero
-    }
+    };
 }
 
 // Add event listeners to score buttons to increase or decrease scores
