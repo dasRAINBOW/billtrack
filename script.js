@@ -70,7 +70,7 @@ function updateScore(scoreElement, increment) {
     let score = parseInt(scoreElement.innerHTML); // Get current score
     scoreElement.innerHTML = score + increment; // Update score by increment
     if (scoreElement.innerHTML < 0) {
-        scoreElement.innerHTML = 0; // Ensure score does not go below zero
+        scoreElement.innerHTML = "0"; // Ensure score does not go below zero
     }
 }
 
