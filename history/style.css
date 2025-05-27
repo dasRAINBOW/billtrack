@@ -100,7 +100,6 @@ button:active {
 }
 
 .game {
-    background-color: var(--accent);
     display: flex;
     justify-content: center;
     flex-direction: row;
