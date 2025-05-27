@@ -69,6 +69,9 @@ document.getElementById('pl2_decideFull').addEventListener('click', () => decide
 function updateScore(scoreElement, increment) {
     let score = parseInt(scoreElement.innerHTML); // Get current score
     scoreElement.innerHTML = score + increment; // Update score by increment
+    if (scoreElement.innerHTML < 0) {
+        scoreElement.innerHTML = 0; // Ensure score does not go below zero
+    }
 }
 
 // Add event listeners to score buttons to increase or decrease scores
