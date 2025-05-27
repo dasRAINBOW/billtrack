@@ -66,6 +66,7 @@ document.getElementById('pl2_decideHalf').addEventListener('click', () => decide
 document.getElementById('pl2_decideFull').addEventListener('click', () => decideHalfOrFull('Half', 'Full'));
 
 // Function to update the score for a player
+//TODO: make score going not negative work
 function updateScore(scoreElement, increment) {
     let score = parseInt(scoreElement.innerHTML); // Get current score
     scoreElement.innerHTML = score + increment; // Update score by increment
