@@ -66,13 +66,20 @@ document.getElementById('pl2_decideHalf').addEventListener('click', () => decide
 document.getElementById('pl2_decideFull').addEventListener('click', () => decideHalfOrFull('Half', 'Full'));
 
 // Function to update the score for a player
-//TODO: make score going not negative work
 function updateScore(scoreElement, increment) {
-    let score = parseInt(scoreElement.innerHTML); // Get current score
-    scoreElement.innerHTML = score + increment; // Update score by increment
-    if (scoreElement.innerHTML < 0) {
-        scoreElement.innerHTML = 0; // Ensure score does not go below zero
-    };
+    // 1. Get current score, provide a fallback if it's not a number (e.g., 0)
+    let currentScore = parseInt(scoreElement.innerHTML);
+    if (isNaN(currentScore)) {
+        currentScore = 0; // Or handle the error as appropriate
+    }
+    // 2. Calculate the new score
+    let newScore = currentScore + increment;
+    // 3. Ensure score does not go below zero (clamping)
+    if (newScore < 0) {
+        newScore = 0;
+    }
+    // 4. Update the HTML element with the final score
+    scoreElement.innerHTML = newScore;
 }
 
 // Add event listeners to score buttons to increase or decrease scores
