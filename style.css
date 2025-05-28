@@ -75,6 +75,15 @@ button:active {
     transform: translateY(-75%) translateX(-50%) !important;
 }
 
+.save {
+    top: 25% !important;
+    transform: translateY(-25%) translateX(-50%) !important;
+}
+
+.save:active {
+    transform: translateY(-25%) translateX(-50%) translateY(3px) !important;
+}
+
 .history:active {
     transform: translateY(-75%) translateX(-50%) translateY(3px) !important;
 }
