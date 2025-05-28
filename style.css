@@ -55,7 +55,7 @@ button:active {
     transform: translateY(3px);
 }
 
-.fullScreen, .theme-toggle, .history {
+.fullScreen, .theme-toggle, .history, .save {
     position: absolute;
     bottom: 10px;
     left: 50%;
