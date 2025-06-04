@@ -10,7 +10,7 @@ themeToggle.addEventListener('click', function () {
     root.setAttribute('data-theme', isLightTheme ? 'dark' : 'light');
 
     // Update the button text to reflect the current theme
-    document.getElementById('themeIcon').setAttribute('src', isLightTheme ? './icons/sun.svg' : './icons/moon.svg');
+    document.getElementById('themeIcon').setAttribute('src', isLightTheme ? '../icons/sun.svg' : '../icons/moon.svg');
     document.getElementById('themeIcon').setAttribute('class', isLightTheme ? '' : 'inverted');
     document.getElementById('saveIcon').setAttribute('class', isLightTheme ? '' : 'inverted');
 });
