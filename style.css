@@ -175,3 +175,7 @@ button:active {
     padding: 10px;
     font-size: 1.2rem;
 }
+
+.inverted {
+    filter: invert(1);
+}
