@@ -111,3 +111,7 @@ button:active {
     height: 20vh;
     margin: auto;
 }
+
+.inverted {
+    filter: invert(1);
+}
