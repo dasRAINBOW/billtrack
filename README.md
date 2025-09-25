@@ -1,3 +1,6 @@
+# This repo is not being maintained.
+# The new website is [here](https://disconn.dev/billtrack).
+
 # Billtrack
 
 A simple online billard tracker, made mostly just for fun and personal utility.
